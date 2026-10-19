@@ -1,0 +1,45 @@
+@use 'sass:map';
+
+$sizes: xs, sm, base, md, lg, xl, '2xl';
+$weights: regular, medium, semibold, bold;
+
+$text-presets: ();
+
+@each $size in $sizes {
+  @each $weight in $weights {
+    $name: 'text-#{$size}';
+    @if $weight != regular {
+      $name: '#{$name}-#{$weight}';
+    }
+    $text-presets: map.set(
+      $text-presets,
+      $name,
+      (
+        size: $size,
+        weight: $weight,
+      )
+    );
+  }
+}
+
+@mixin typography($preset) {
+  @if not map.has-key($text-presets, $preset) {
+    @error "Unknown typography preset `#{$preset}`. Use a Figma text style name, e.g. text-sm, text-base-medium, text-2xl-semibold.";
+  }
+  $size: map.get($text-presets, $preset, size);
+  $weight: map.get($text-presets, $preset, weight);
+
+  font-family: var(--font-family-manrope);
+  font-size: var(--font-size-#{$size});
+  line-height: var(--line-height-#{$size});
+  letter-spacing: var(--letter-spacing-#{$size});
+  font-weight: var(--font-weight-#{$weight});
+}
+
+@mixin typography-classes {
+  @each $name, $_ in $text-presets {
+    .#{$name} {
+      @include typography($name);
+    }
+  }
+}

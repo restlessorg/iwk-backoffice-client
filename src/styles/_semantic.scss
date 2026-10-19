@@ -1,0 +1,46 @@
+:root {
+  // bg tokens
+  --bg-canvas: #f1f1f4;
+  --bg-surface: #ffffff;
+  --bg-muted: #f5f5f7;
+  --bg-inverted: #111114;
+  --bg-brand-soft: #efecff;
+  --bg-success-soft: #e7f6ec;
+  --bg-map: #ecedf1;
+  --bg-scrim: #0b0b0f;
+  --bg-danger-soft: #fef3f2;
+  --bg-hover: #eeeef2;
+
+  // border
+  --border-default: #e7e7ec;
+  --border-strong: #d4d4dc;
+
+  // text
+  --color-text-primary: #111114;
+  --color-text-secondary: #6b6b76;
+  --color-text-tertiary: #a1a1ac;
+  --color-inverse: #ffffff;
+
+  // brand
+  --color-brand-default: #5b4bdb;
+  --color-brand-light: #a79bff;
+  --color-brand-faint: #d6d0ff;
+
+  // success
+  --color-success-default: #15803d;
+
+  // map
+  --color-map-grid: #e0e1e7;
+  --color-map-water: #dbe3ee;
+
+  // danger
+  --color-danger-default: #d92d20;
+  --color-danger-faint: #fecdca;
+
+  // radius
+  --radius-sm: 10px;
+  --radius-md: var(--space-16);
+  --radius-xl: var(--space-20);
+  --radius-lg: var(--space-24);
+  --radius-full: 999px;
+}

@@ -1,0 +1,9 @@
+@use './primitives';
+@use './semantic';
+@use './typography' as *;
+
+@include typography-classes;
+
+body {
+  @include typography(text-base);
+}

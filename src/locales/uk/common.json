@@ -1,0 +1,12 @@
+{
+  "title": "IWK BackOffice клієнт",
+  "orders": {
+    "title": "Замовлення"
+  },
+  "map": {
+    "title": "Мапа"
+  },
+  "order": {
+    "title": "Замовлення - {{order_id}}"
+  }
+}
