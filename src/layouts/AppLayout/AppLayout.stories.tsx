@@ -2,15 +2,15 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { CSSProperties } from 'react'
 import { MemoryRouter, Route, Routes } from 'react-router'
 import { INITIAL_VIEWPORTS } from 'storybook/viewport'
+import { ComingSoon } from '@/components/ComingSoon'
 import { LanguageRoute } from '@/routes/LanguageRoute'
 import { AppLayout } from './AppLayout'
 
-function Page({ title }: { title: string }) {
+// Page content only — the title is in the header (AppLayout)
+function Page() {
   return (
     <div style={{ display: 'grid', gap: 12 }}>
-      <h1 className='text-2xl-semibold' style={{ margin: 0 }}>
-        {title}
-      </h1>
+      <ComingSoon />
       {Array.from({ length: 12 }, (_, i) => (
         <div
           key={i}
@@ -39,8 +39,8 @@ function Shell({ path, safeArea }: { path: string; safeArea?: boolean }) {
         <Routes>
           <Route path='/:lng/' element={<LanguageRoute />}>
             <Route element={<AppLayout />}>
-              <Route path='orders' element={<Page title='Orders' />} />
-              <Route path='map' element={<Page title='Map' />} />
+              <Route path='orders' element={<Page />} />
+              <Route path='map' element={<Page />} />
             </Route>
           </Route>
         </Routes>

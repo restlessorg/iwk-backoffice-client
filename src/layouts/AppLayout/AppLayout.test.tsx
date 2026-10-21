@@ -2,6 +2,9 @@ import { render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter, Route, Routes, useLocation } from 'react-router'
 import i18n from '@/locales/i18n'
+import { MapPage } from '@/pages/map/MapPage'
+import { OrderPage } from '@/pages/order/OrderPage'
+import { OrdersPage } from '@/pages/orders/OrdersPage'
 import { LanguageRoute } from '@/routes/LanguageRoute'
 import { AppLayout } from './AppLayout'
 
@@ -16,9 +19,9 @@ function renderAt(path: string) {
       <Routes>
         <Route path='/:lng/' element={<LanguageRoute />}>
           <Route element={<AppLayout />}>
-            <Route path='orders' element={<h1>Orders page</h1>} />
-            <Route path='orders/:id' element={<h1>Order page</h1>} />
-            <Route path='map' element={<h1>Map page</h1>} />
+            <Route path='orders' element={<OrdersPage />} />
+            <Route path='orders/:id' element={<OrderPage />} />
+            <Route path='map' element={<MapPage />} />
           </Route>
         </Route>
       </Routes>
@@ -29,22 +32,33 @@ function renderAt(path: string) {
 
 const location = () => screen.getByTestId('location')
 const nav = () => screen.getByRole('navigation', { name: 'Main navigation' })
+const pageTitle = () => screen.getByRole('heading', { level: 1 })
 
 describe('AppLayout (mobile)', () => {
   afterEach(async () => {
     await i18n.changeLanguage('en')
   })
 
-  it('renders the header, the page and the tab bar', () => {
+  it('renders the header with the page title, the page and the tab bar', () => {
     renderAt('/en/orders')
 
     const header = screen.getByRole('banner')
-    expect(within(header).getByText('Orders Hub')).toBeInTheDocument()
+    expect(
+      within(header).getByRole('heading', { level: 1, name: 'Orders' }),
+    ).toBeInTheDocument()
     expect(
       within(header).getByRole('combobox', { name: 'Language' }),
     ).toHaveTextContent('EN')
-    expect(screen.getByRole('main')).toHaveTextContent('Orders page')
+    expect(screen.getByRole('main')).toHaveTextContent('Coming soon…')
     expect(within(nav()).getAllByRole('link')).toHaveLength(2)
+  })
+
+  it('has a single page title and puts it in the document title', () => {
+    renderAt('/en/orders/11223')
+
+    expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1)
+    expect(pageTitle()).toHaveTextContent('Order 11223')
+    expect(document.title).toBe('Order 11223 · Orders Hub')
   })
 
   it('links the tabs to the current language', () => {
@@ -72,14 +86,14 @@ describe('AppLayout (mobile)', () => {
     ).not.toHaveAttribute('aria-current')
   })
 
-  it('navigates between tabs', async () => {
+  it('navigates between tabs and updates the title', async () => {
     renderAt('/en/orders')
     const user = userEvent.setup()
 
     await user.click(within(nav()).getByRole('link', { name: 'Map' }))
 
     expect(location()).toHaveTextContent('/en/map')
-    expect(screen.getByRole('main')).toHaveTextContent('Map page')
+    expect(pageTitle()).toHaveTextContent('Map')
     expect(within(nav()).getByRole('link', { name: 'Map' })).toHaveAttribute(
       'aria-current',
       'page',
@@ -103,5 +117,7 @@ describe('AppLayout (mobile)', () => {
     expect(screen.getByRole('combobox', { name: 'Мова' })).toHaveTextContent(
       'UK',
     )
+    expect(pageTitle()).toHaveTextContent('Замовлення')
+    expect(screen.getByRole('main')).toHaveTextContent('Незабаром…')
   })
 })

@@ -50,7 +50,7 @@
   }
 }
 
-.name {
+.title {
   @include typography(text-md-semibold);
   overflow: hidden;
   color: var(--color-text-primary);

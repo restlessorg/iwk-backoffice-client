@@ -1,12 +1,19 @@
 {
   "title": "IWK BackOffice клієнт",
+  "comingSoon": "Незабаром…",
   "app": {
-    "name": "Orders Hub"
+    "name": "Orders Hub",
+    "workspace": "Демо-простір"
   },
   "nav": {
     "label": "Основна навігація",
+    "section": "Меню",
     "orders": "Замовлення",
     "map": "Мапа"
+  },
+  "sidebar": {
+    "collapse": "Згорнути меню",
+    "expand": "Розгорнути меню"
   },
   "language": {
     "label": "Мова"

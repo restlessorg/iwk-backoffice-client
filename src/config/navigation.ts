@@ -9,7 +9,7 @@ export interface NavItem {
   icon: LucideIcon
 }
 
-/** Main sections — the mobile tab bar and (later) the desktop sidebar. */
+/** Main sections — the mobile tab bar and the desktop sidebar. */
 export const NAV_ITEMS: NavItem[] = [
   { to: ROUTES.ORDERS, label: 'orders', icon: List },
   { to: ROUTES.MAP, label: 'map', icon: MapIcon },
