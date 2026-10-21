@@ -247,4 +247,22 @@ describe('Select', () => {
     expect(control).toHaveAttribute('data-variant', 'outline')
     expect(control).toHaveAttribute('data-roundness', 'pill')
   })
+
+  it('formats the selected value with renderValue but keeps labels in the menu', async () => {
+    render(
+      <Select
+        items={sortItems}
+        defaultValue='newest'
+        aria-label='Sort'
+        placeholder='Sort'
+        renderValue={(item) => item.label.toUpperCase()}
+      />,
+    )
+
+    expect(trigger()).toHaveTextContent('NEWEST FIRST')
+    await open()
+    expect(
+      screen.getByRole('option', { name: 'Newest first' }),
+    ).toBeInTheDocument()
+  })
 })

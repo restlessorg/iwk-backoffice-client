@@ -27,6 +27,11 @@ export interface SelectProps<Value extends SelectValue> {
   icon?: ReactNode
   /** Short text before the chevron, e.g. "EN" */
   meta?: ReactNode
+  /**
+   * What the trigger shows for the selected item (the menu always shows `label`),
+   * e.g. the language code "EN" while the menu lists "English".
+   */
+  renderValue?: (item: SelectItem<Value>) => ReactNode
   /** Visible label above the trigger */
   label?: string
   /** Accessible name when there is no visible label */
@@ -64,6 +69,7 @@ export function Select<Value extends SelectValue>({
   placeholder,
   icon,
   meta,
+  renderValue,
   label,
   'aria-label': ariaLabel,
   description,
@@ -161,7 +167,14 @@ export function Select<Value extends SelectValue>({
             <BaseSelect.Value
               className={styles.value}
               placeholder={placeholder}
-            />
+            >
+              {renderValue
+                ? (selected: Value | null) => {
+                    const item = items.find((i) => i.value === selected)
+                    return item ? renderValue(item) : placeholder
+                  }
+                : undefined}
+            </BaseSelect.Value>
             {meta && <span className={styles.meta}>{meta}</span>}
             {!showClear && (
               <BaseSelect.Icon className={styles.chevron}>
