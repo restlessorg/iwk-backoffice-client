@@ -4,12 +4,13 @@ import { Outlet } from 'react-router'
 import { DESKTOP_MEDIA_QUERY } from '@/config/breakpoints'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { usePageTitle } from '@/hooks/usePageTitle'
+import {
+  DesktopHeader,
+  Sidebar,
+  useSidebarCollapsed,
+} from '@/layouts/DesktopLayout'
+import { MobileHeader, MobileNav } from '@/layouts/MobileLayout'
 import styles from './AppLayout.module.scss'
-import { DesktopHeader } from './DesktopHeader'
-import { MobileHeader } from './MobileHeader'
-import { MobileNav } from './MobileNav'
-import { Sidebar } from './Sidebar'
-import { useSidebarCollapsed } from './useSidebarCollapsed'
 
 /**
  * App shell.

@@ -4,7 +4,7 @@ import { MemoryRouter, Route, Routes } from 'react-router'
 import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import { ComingSoon } from '@/components/ComingSoon'
 import { LanguageRoute } from '@/routes/LanguageRoute'
-import { AppLayout } from './AppLayout'
+import { AppLayout } from '@/layouts/AppLayout'
 
 // Page content only — the title is in the header (AppLayout)
 function Page() {

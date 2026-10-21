@@ -6,7 +6,7 @@ import { MapPage } from '@/pages/map/MapPage'
 import { OrderPage } from '@/pages/order/OrderPage'
 import { OrdersPage } from '@/pages/orders/OrdersPage'
 import { LanguageRoute } from '@/routes/LanguageRoute'
-import { AppLayout } from './AppLayout'
+import { AppLayout } from '@/layouts/AppLayout'
 
 function Location() {
   const { pathname, search } = useLocation()
