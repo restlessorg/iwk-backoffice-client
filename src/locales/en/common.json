@@ -8,5 +8,8 @@
   },
   "order": {
     "title": "Order {{order_id}}"
+  },
+  "select": {
+    "clear": "Clear selection"
   }
 }
