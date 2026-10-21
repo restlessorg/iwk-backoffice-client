@@ -27,3 +27,5 @@ coverage
 
 .wrangler
 .dev.vars*
+*storybook.log
+storybook-static
