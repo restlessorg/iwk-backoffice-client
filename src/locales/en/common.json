@@ -1,5 +1,16 @@
 {
   "title": "IWK BackOffice client",
+  "app": {
+    "name": "Orders Hub"
+  },
+  "nav": {
+    "label": "Main navigation",
+    "orders": "Orders",
+    "map": "Map"
+  },
+  "language": {
+    "label": "Language"
+  },
   "orders": {
     "title": "Orders"
   },

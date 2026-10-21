@@ -4,6 +4,34 @@
 
 @include typography-classes;
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  // stop iOS Safari from enlarging text in landscape
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   @include typography(text-base);
+
+  margin: 0;
+  min-width: 320px;
+  background: var(--bg-canvas);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
 }
