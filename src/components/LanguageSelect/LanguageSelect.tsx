@@ -9,10 +9,15 @@ const LANGUAGE_NAMES: Record<Language, string> = {
   uk: 'Українська',
 }
 
+const LANGUAGE_CODES: Record<Language, string> = {
+  en: 'EN',
+  uk: 'UA',
+}
+
 const items: SelectItem<Language>[] = LANGUAGES.map((lng) => ({
   value: lng,
   label: LANGUAGE_NAMES[lng],
-  meta: lng.toUpperCase(),
+  meta: LANGUAGE_CODES[lng],
 }))
 
 type Props = Omit<
@@ -50,10 +55,11 @@ export function LanguageSelect({ compact, ...props }: Props) {
       items={items}
       value={current}
       onValueChange={change}
-      icon={<Globe />}
+      icon={compact ? undefined : <Globe />}
+      hideChevron={compact}
       aria-label={t('language.label')}
       menuLabel={t('language.label')}
-      renderValue={compact ? (item) => item.value.toUpperCase() : undefined}
+      renderValue={compact ? (item) => LANGUAGE_CODES[item.value] : undefined}
       {...props}
     />
   )

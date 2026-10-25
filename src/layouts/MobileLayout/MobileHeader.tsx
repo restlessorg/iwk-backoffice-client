@@ -1,4 +1,4 @@
-import { Package } from 'lucide-react'
+import { Globe, Package } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { LanguageSelect } from '@/components/LanguageSelect'
 import styles from './MobileHeader.module.scss'
@@ -21,7 +21,7 @@ export function MobileHeader({ title, actions }: Props) {
       </div>
       <div className={styles.actions}>
         {actions}
-        <LanguageSelect compact />
+        <LanguageSelect compact hideChevron={false} icon={<Globe />} />
       </div>
     </header>
   )

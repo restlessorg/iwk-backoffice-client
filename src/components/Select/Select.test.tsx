@@ -265,4 +265,38 @@ describe('Select', () => {
       screen.getByRole('option', { name: 'Newest first' }),
     ).toBeInTheDocument()
   })
+
+  describe('hideChevron', () => {
+    it('shows only the value when there is no icon', async () => {
+      render(
+        <Select
+          items={sortItems}
+          defaultValue='newest'
+          aria-label='Sort'
+          hideChevron
+        />,
+      )
+      const control = trigger().closest('[data-slot="select-control"]')
+
+      expect(trigger()).toHaveTextContent('Newest first')
+      expect(trigger().querySelector('svg')).toBeNull()
+      expect(control).toHaveAttribute('data-bare')
+      await open()
+    })
+
+    it('keeps the icon and the usual padding when an icon is given', () => {
+      render(
+        <Select
+          items={sortItems}
+          aria-label='Sort'
+          icon={<ArrowUpDown />}
+          hideChevron
+        />,
+      )
+      const control = trigger().closest('[data-slot="select-control"]')
+
+      expect(trigger().querySelectorAll('svg')).toHaveLength(1)
+      expect(control).not.toHaveAttribute('data-bare')
+    })
+  })
 })

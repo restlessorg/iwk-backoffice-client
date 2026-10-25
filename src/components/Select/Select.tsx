@@ -32,6 +32,8 @@ export interface SelectProps<Value extends SelectValue> {
    * e.g. the language code "EN" while the menu lists "English".
    */
   renderValue?: (item: SelectItem<Value>) => ReactNode
+  /** Without an icon, also tightens the padding and centers the value */
+  hideChevron?: boolean
   /** Visible label above the trigger */
   label?: string
   /** Accessible name when there is no visible label */
@@ -70,6 +72,7 @@ export function Select<Value extends SelectValue>({
   icon,
   meta,
   renderValue,
+  hideChevron,
   label,
   'aria-label': ariaLabel,
   description,
@@ -103,6 +106,7 @@ export function Select<Value extends SelectValue>({
 
   const isInvalid = invalid || Boolean(error)
   const showClear = clearable && current != null && !disabled
+  const showChevron = !showClear && !hideChevron
 
   const options = items.map((item) => (
     <BaseSelect.Item
@@ -153,6 +157,7 @@ export function Select<Value extends SelectValue>({
           data-roundness={roundness}
           data-active={showClear || undefined}
           data-invalid={isInvalid || undefined}
+          data-bare={(hideChevron && !icon) || undefined}
         >
           <BaseSelect.Trigger
             ref={triggerRef}
@@ -176,7 +181,7 @@ export function Select<Value extends SelectValue>({
                 : undefined}
             </BaseSelect.Value>
             {meta && <span className={styles.meta}>{meta}</span>}
-            {!showClear && (
+            {showChevron && (
               <BaseSelect.Icon className={styles.chevron}>
                 <ChevronDown aria-hidden />
               </BaseSelect.Icon>

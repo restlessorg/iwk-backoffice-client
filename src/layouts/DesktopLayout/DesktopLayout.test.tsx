@@ -43,13 +43,11 @@ describe('AppLayout (desktop)', () => {
     const sidebar = screen.getByRole('complementary')
     expect(within(sidebar).getByText('Orders Hub')).toBeInTheDocument()
     expect(within(sidebar).getByText('Demo workspace')).toBeInTheDocument()
+    expect(
+      within(sidebar).getByRole('combobox', { name: 'Language' }),
+    ).toHaveTextContent('English')
 
     expect(headerTitle()).toHaveTextContent('Orders')
-    expect(
-      within(screen.getByRole('banner')).getByRole('combobox', {
-        name: 'Language',
-      }),
-    ).toHaveTextContent('English')
 
     expect(screen.getByRole('main')).toHaveTextContent('Coming soon…')
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1)

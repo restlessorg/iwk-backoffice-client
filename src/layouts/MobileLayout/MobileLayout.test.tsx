@@ -115,7 +115,7 @@ describe('AppLayout (mobile)', () => {
       screen.getByRole('navigation', { name: 'Основна навігація' }),
     ).toBeInTheDocument()
     expect(screen.getByRole('combobox', { name: 'Мова' })).toHaveTextContent(
-      'UK',
+      'UA',
     )
     expect(pageTitle()).toHaveTextContent('Замовлення')
     expect(screen.getByRole('main')).toHaveTextContent('Незабаром…')

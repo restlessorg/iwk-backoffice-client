@@ -44,7 +44,7 @@ const areaItems: SelectItem<string>[] = [
 
 const languageItems: SelectItem<string>[] = [
   { value: 'en', label: 'English', meta: 'EN' },
-  { value: 'uk', label: 'Українська', meta: 'UK' },
+  { value: 'uk', label: 'Українська', meta: 'UA' },
 ]
 
 const meta = {
@@ -239,6 +239,24 @@ export const LanguagePicker: Story = {
         defaultValue='en'
         icon={<Globe />}
         meta='EN'
+        roundness='rounded'
+        aria-label='Language'
+        menuLabel='Language'
+        fullWidth
+      />
+    </div>
+  ),
+}
+
+/** Collapsed sidebar: only the code in a 44px slot — no icon, no chevron. */
+export const LanguagePickerCompact: Story = {
+  render: () => (
+    <div style={{ width: 44 }}>
+      <Select
+        items={languageItems}
+        defaultValue='en'
+        renderValue={(item) => item.meta}
+        hideChevron
         roundness='rounded'
         aria-label='Language'
         menuLabel='Language'

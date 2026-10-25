@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react'
-import { LanguageSelect } from '@/components/LanguageSelect'
 import styles from './DesktopHeader.module.scss'
 
 interface Props {
@@ -14,10 +13,7 @@ export function DesktopHeader({ title, actions }: Props) {
   return (
     <header className={styles.header}>
       <h1 className={styles.title}>{title}</h1>
-      <div className={styles.actions}>
-        {actions}
-        <LanguageSelect />
-      </div>
+      <div className={styles.actions}>{actions}</div>
     </header>
   )
 }

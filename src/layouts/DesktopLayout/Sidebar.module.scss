@@ -129,6 +129,10 @@
   background: var(--border-default);
 }
 
+.mainContent {
+  flex: 1;
+}
+
 .nav {
   min-height: 0;
 }

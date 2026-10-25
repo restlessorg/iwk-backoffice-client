@@ -124,6 +124,12 @@
     box-shadow: 0 0 0 3px var(--color-brand-faint);
   }
 
+  // Before Active, so a ✕ keeps its room on the right
+  .control[data-bare] & {
+    justify-content: center;
+    padding: 0 var(--space-4);
+  }
+
   // Active — a value is applied and can be cleared with ✕
   .control[data-active] & {
     padding-inline-end: calc(
@@ -170,6 +176,10 @@
   overflow: hidden;
   text-align: start;
   text-overflow: ellipsis;
+
+  .control[data-bare] & {
+    text-align: center;
+  }
 
   &[data-placeholder] {
     color: var(--color-text-tertiary);
