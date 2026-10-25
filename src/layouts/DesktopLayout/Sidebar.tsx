@@ -14,10 +14,6 @@ interface Props {
 
 const SIDEBAR_ID = 'app-sidebar'
 
-/**
- * Desktop navigation. Expanded (240px) shows labels; collapsed (76px) shows icons,
- * with the label in a tooltip on hover / keyboard focus.
- */
 export function Sidebar({ collapsed, onCollapsedChange }: Props) {
   const { t } = useTranslation()
   const { lng } = useParams()

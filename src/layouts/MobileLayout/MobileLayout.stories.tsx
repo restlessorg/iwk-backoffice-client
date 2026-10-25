@@ -6,7 +6,6 @@ import { ComingSoon } from '@/components/ComingSoon'
 import { LanguageRoute } from '@/routes/LanguageRoute'
 import { AppLayout } from '@/layouts/AppLayout'
 
-// Page content only — the title is in the header (AppLayout)
 function Page() {
   return (
     <div style={{ display: 'grid', gap: 12 }}>
@@ -25,7 +24,7 @@ function Page() {
   )
 }
 
-/** Renders the layout at a route; `safeArea` simulates a notch / home indicator. */
+// `safeArea` simulates a notch and a home indicator
 function Shell({ path, safeArea }: { path: string; safeArea?: boolean }) {
   const style = safeArea
     ? ({

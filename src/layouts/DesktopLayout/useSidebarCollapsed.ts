@@ -10,7 +10,6 @@ function read(): boolean {
   }
 }
 
-/** Collapsed / expanded sidebar, remembered between visits. */
 export function useSidebarCollapsed() {
   const [collapsed, setCollapsed] = useState(read)
 

@@ -79,8 +79,6 @@ export const Playground: Story = {
   args: { icon: <ArrowUpDown /> },
 }
 
-// ------------------------------------------------------------------ the Figma table
-
 const VARIANTS: SelectVariant[] = ['outline', 'filled', 'ghost']
 const SHAPES: SelectRoundness[] = ['pill', 'rounded']
 const SIZES: SelectSize[] = ['md', 'sm', 'lg']
@@ -158,8 +156,6 @@ export const AllVariants: Story = {
     </div>
   ),
 }
-
-// ------------------------------------------------------------------ usage from the design
 
 /** Table toolbar: rows per page, sort and an applied filter. */
 export const TableToolbar: Story = {
@@ -308,8 +304,6 @@ export const Sizes: Story = {
     </div>
   ),
 }
-
-// ------------------------------------------------------------------ interaction
 
 /** Opens the menu, picks an option and clears it — runs in the Interactions panel. */
 export const PickAndClear: Story = {

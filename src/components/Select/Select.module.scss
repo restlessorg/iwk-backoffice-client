@@ -1,7 +1,5 @@
 @use '../../styles/typography' as *;
 
-// Matches the "Select", "Select Option" and "Select Menu" components in Figma.
-
 .field {
   display: inline-flex;
   flex-direction: column;
@@ -29,8 +27,6 @@
 .error {
   color: var(--color-danger-default);
 }
-
-// ------------------------------------------------------------------ trigger
 
 .control {
   --select-height: 40px;
@@ -108,7 +104,6 @@
     }
   }
 
-  // Open — and keyboard focus, which must always be visible
   .control:not([data-variant='ghost']) &[data-popup-open],
   .control:not([data-variant='ghost']) &:focus-visible {
     background: var(--bg-surface);
@@ -130,7 +125,6 @@
     padding: 0 var(--space-4);
   }
 
-  // Active — a value is applied and can be cleared with ✕
   .control[data-active] & {
     padding-inline-end: calc(
       var(--select-padding) + var(--select-padding-extra, 0px) +
@@ -145,7 +139,6 @@
     border-color: transparent;
   }
 
-  // Error
   .control[data-invalid] & {
     border-color: var(--color-danger-default);
   }
@@ -159,7 +152,6 @@
     color: var(--color-danger-default);
   }
 
-  // Disabled
   &[data-disabled] {
     opacity: 0.5;
     cursor: not-allowed;
@@ -269,8 +261,6 @@
     box-shadow: 0 0 0 3px var(--color-brand-faint);
   }
 }
-
-// ------------------------------------------------------------------ menu
 
 .positioner {
   z-index: 50;

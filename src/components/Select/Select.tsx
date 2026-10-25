@@ -15,7 +15,6 @@ import type {
 
 export interface SelectProps<Value extends SelectValue> {
   items: SelectItem<Value>[]
-  /** Controlled value; `null` means nothing is selected */
   value?: Value | null
   defaultValue?: Value | null
   onValueChange?: (value: Value | null) => void
@@ -23,39 +22,25 @@ export interface SelectProps<Value extends SelectValue> {
   variant?: SelectVariant
   roundness?: SelectRoundness
   placeholder?: string
-  /** Leading icon in the trigger, e.g. `<ArrowUpDown />` */
   icon?: ReactNode
-  /** Short text before the chevron, e.g. "EN" */
   meta?: ReactNode
-  /**
-   * What the trigger shows for the selected item (the menu always shows `label`),
-   * e.g. the language code "EN" while the menu lists "English".
-   */
+  /** Trigger content for the selected item; the menu still shows `label` */
   renderValue?: (item: SelectItem<Value>) => ReactNode
   /** Without an icon, also tightens the padding and centers the value */
   hideChevron?: boolean
-  /** Visible label above the trigger */
   label?: string
-  /** Accessible name when there is no visible label */
   'aria-label'?: string
-  /** Helper text under the trigger */
   description?: string
-  /** Error message under the trigger; also turns the error state on */
+  /** Also turns the error state on */
   error?: string
   invalid?: boolean
   disabled?: boolean
   required?: boolean
   name?: string
-  /**
-   * Shows a ✕ that resets the value. While a value is set the trigger uses the
-   * "Active" look from the design — use it for applied filters.
-   */
+  /** ✕ that resets the value; while set, the trigger uses the "Active" look */
   clearable?: boolean
-  /** Accessible name of the ✕ button */
   clearLabel?: string
-  /** Heading above the options, e.g. "Sort by" */
   menuLabel?: string
-  /** Stretch to the width of the container */
   fullWidth?: boolean
   className?: string
 }

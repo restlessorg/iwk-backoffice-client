@@ -17,7 +17,6 @@ const PAGE_TITLES: { path: string; title: TitleFn }[] = [
   { path: ROUTES.MAP, title: (t) => t('map.title') },
 ]
 
-/** Title of the current page, resolved from the localized path (/en/orders/11223 → "Order 11223"). */
 export function usePageTitle(): string {
   const { t } = useTranslation()
   const { pathname } = useLocation()

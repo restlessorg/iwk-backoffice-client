@@ -3,7 +3,6 @@ import { useCallback, useSyncExternalStore } from 'react'
 const supported = () =>
   typeof window !== 'undefined' && typeof window.matchMedia === 'function'
 
-/** Subscribes to a CSS media query, e.g. useMediaQuery('(min-width: 768px)'). */
 export function useMediaQuery(query: string): boolean {
   const subscribe = useCallback(
     (onChange: () => void) => {

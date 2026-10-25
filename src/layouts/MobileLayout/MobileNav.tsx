@@ -3,7 +3,6 @@ import { NavLink, useParams } from 'react-router'
 import { NAV_ITEMS } from '@/config/navigation'
 import styles from './MobileNav.module.scss'
 
-/** Bottom tab bar — the mobile replacement for the sidebar. */
 export function MobileNav() {
   const { t } = useTranslation()
   const { lng } = useParams()

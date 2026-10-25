@@ -5,7 +5,6 @@ import { ComingSoon } from '@/components/ComingSoon'
 import { LanguageRoute } from '@/routes/LanguageRoute'
 import { AppLayout } from '@/layouts/AppLayout'
 
-// Page content only — the title is in the header (AppLayout)
 function Page() {
   return (
     <div style={{ display: 'grid', gap: 16 }}>

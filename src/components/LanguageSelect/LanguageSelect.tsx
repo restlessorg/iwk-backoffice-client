@@ -24,14 +24,10 @@ type Props = Omit<
   SelectProps<Language>,
   'items' | 'value' | 'defaultValue' | 'onValueChange'
 > & {
-  /** Show only the code ("EN") in the trigger — for the mobile header */
+  /** Only the language code, without the globe and the chevron */
   compact?: boolean
 }
 
-/**
- * Switches the UI language by changing the language prefix in the URL
- * (/en/orders → /uk/orders); LanguageRoute then updates i18next.
- */
 export function LanguageSelect({ compact, ...props }: Props) {
   const { t, i18n } = useTranslation()
   const { lng } = useParams()

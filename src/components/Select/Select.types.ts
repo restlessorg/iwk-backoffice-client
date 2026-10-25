@@ -5,9 +5,7 @@ export type SelectValue = string | number
 export interface SelectItem<Value extends SelectValue = SelectValue> {
   label: string
   value: Value
-  /** Leading icon in the menu row, e.g. `<MapPin />` */
   icon?: ReactNode
-  /** Secondary text on the right of the menu row, e.g. "County" */
   meta?: ReactNode
   disabled?: boolean
 }
