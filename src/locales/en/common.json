@@ -1,5 +1,23 @@
 {
   "title": "IWK BackOffice client",
+  "comingSoon": "Coming soon…",
+  "app": {
+    "name": "Orders Hub",
+    "workspace": "Demo workspace"
+  },
+  "nav": {
+    "label": "Main navigation",
+    "section": "Menu",
+    "orders": "Orders",
+    "map": "Map"
+  },
+  "sidebar": {
+    "collapse": "Collapse sidebar",
+    "expand": "Expand sidebar"
+  },
+  "language": {
+    "label": "Language"
+  },
   "orders": {
     "title": "Orders"
   },
@@ -8,5 +26,8 @@
   },
   "order": {
     "title": "Order {{order_id}}"
+  },
+  "select": {
+    "clear": "Clear selection"
   }
 }

@@ -1,0 +1,225 @@
+@use '../../styles/typography' as *;
+
+.sidebar {
+  --sidebar-width: 240px;
+
+  position: sticky;
+  top: var(--space-16);
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-self: flex-start;
+  width: var(--sidebar-width);
+  height: calc(100dvh - 2 * var(--space-16));
+  margin: var(--space-16) 0 var(--space-16)
+    max(var(--space-16), var(--safe-area-left, env(safe-area-inset-left, 0px)));
+  padding: var(--space-16);
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface);
+  transition: width 200ms ease-out;
+
+  &[data-collapsed] {
+    --sidebar-width: 76px;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 0 var(--space-8) 2px;
+
+  .sidebar[data-collapsed] & {
+    flex-direction: column;
+    gap: var(--space-12);
+    padding: var(--space-4) 0 var(--space-8);
+  }
+}
+
+.logo {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: var(--color-brand-default);
+  color: var(--color-inverse);
+
+  svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 1.75;
+  }
+}
+
+.identity {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.name,
+.workspace {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name {
+  @include typography(text-md-semibold);
+  color: var(--color-text-primary);
+}
+
+.workspace {
+  @include typography(text-sm-medium);
+  color: var(--color-text-tertiary);
+}
+
+.toggle {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  outline: none;
+  transition:
+    background-color 150ms ease-out,
+    color 150ms ease-out;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.75;
+  }
+
+  &:hover {
+    background: var(--bg-hover);
+    color: var(--color-text-primary);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px var(--color-brand-faint);
+  }
+}
+
+.section {
+  @include typography(text-xs-semibold);
+  padding: 20px var(--space-12) var(--space-8);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.separator {
+  flex: none;
+  width: 28px;
+  height: 1px;
+  margin: var(--space-12) auto;
+  background: var(--border-default);
+}
+
+.mainContent {
+  flex: 1;
+}
+
+.nav {
+  min-height: 0;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  @include typography(text-base-medium);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  padding: 0 var(--space-12);
+  border-radius: 12px;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  outline: none;
+  transition:
+    background-color 150ms ease-out,
+    color 150ms ease-out;
+
+  svg {
+    flex: none;
+    width: 20px;
+    height: 20px;
+    stroke-width: 1.75;
+  }
+
+  @media (hover: hover) {
+    &:hover:not([aria-current='page']) {
+      background: var(--bg-hover);
+      color: var(--color-text-primary);
+    }
+  }
+
+  &[aria-current='page'] {
+    background: var(--bg-inverted);
+    color: var(--color-inverse);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 3px var(--color-brand-faint);
+  }
+
+  .sidebar[data-collapsed] & {
+    justify-content: center;
+    width: 44px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+.label {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.tooltip {
+  @include typography(text-sm-medium);
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--bg-inverted);
+  color: var(--color-inverse);
+  box-shadow: 0 8px 24px rgb(17 17 26 / 20%);
+  transform-origin: var(--transform-origin);
+  transition:
+    opacity 100ms ease-out,
+    transform 100ms ease-out;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar,
+  .toggle,
+  .item,
+  .tooltip {
+    transition: none;
+  }
+}

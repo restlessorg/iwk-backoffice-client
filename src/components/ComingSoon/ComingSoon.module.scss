@@ -1,0 +1,6 @@
+@use '../../styles/typography' as *;
+
+.comingSoon {
+  @include typography(text-base);
+  color: var(--color-text-secondary);
+}
