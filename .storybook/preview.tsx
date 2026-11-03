@@ -22,6 +22,17 @@ const preview: Preview = {
   initialGlobals: {
     backgrounds: { value: 'canvas' },
   },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          backgroundColor: 'var(--bg-canvas)',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 export default preview
