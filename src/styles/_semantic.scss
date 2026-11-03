@@ -10,6 +10,9 @@
   --bg-scrim: #0b0b0f;
   --bg-danger-soft: #fef3f2;
   --bg-hover: #eeeef2;
+  --bg-pressed: #e7e7ec;
+  --bg-inverse-hover: #2a2a30;
+  --bg-inverse-pressed: #000000;
 
   // border
   --border-default: #e7e7ec;
@@ -25,6 +28,8 @@
   --color-brand-default: #5b4bdb;
   --color-brand-light: #a79bff;
   --color-brand-faint: #d6d0ff;
+  --color-brand-hover: #5040ce;
+  --color-brand-strong: #4636c2;
 
   // success
   --color-success-default: #15803d;
@@ -36,6 +41,8 @@
   // danger
   --color-danger-default: #d92d20;
   --color-danger-faint: #fecdca;
+
+  --color-focus-ring: var(--color-brand-faint);
 
   // radius
   --radius-sm: 10px;
